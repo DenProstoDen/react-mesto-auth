@@ -1,68 +1,57 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url(./fonts/fonts.css);
+@import url(./blocks/body/body.css);
+@import url(./blocks/page/page.css);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@import url(./blocks/element/element.css);
+@import url(./blocks/element/__img/element__img.css);
+@import url(./blocks/element/__place/element__place.css);
+@import url(./blocks/element/__text/element__text.css);
+@import url(./blocks/element/__button/element__button.css);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url(./blocks/elements/elements.css);
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__text/footer__text.css);
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__logo/header__logo.css);
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__add-button/profile__add-button.css);
+@import url(./blocks/profile/__avatar/profile__avatar.css);
+@import url(./blocks/profile/__info/profile__info.css);
+@import url(./blocks/profile/__name/profile__name.css);
+@import url(./blocks/profile/__pencil/profile__pencil.css);
+@import url(./blocks/profile/__specialization/profile__specializarion.css);
+@import url(./blocks/profile/__id/profile__id.css);
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__header/popup__header.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/__close-button/popup__close-button.css);
+@import url(./blocks/popup/__input/popup__input.css);
+@import url(./blocks/popup/__save-button/popup__save-button.css);
+@import url(./blocks/popup/__form/popup__form.css);
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+@import url(./blocks/element/__trash/element__trash.css);
+
+@import url(./blocks/card/card.css);
+@import url(./blocks/card/__delete/card__delete.css);
+@import url(./blocks/card/__description/card__description.css);
+@import url(./blocks/card/__img/card__img.css);
+@import url(./blocks/card/__like/card__like.css);
+@import url(./blocks/card/__text/card__text.css);
+@import url(./blocks/card/__like/_active/card__like_active.css);
+
+@import url(./blocks/popup-image/__text/popup-image__text.css);
+@import url(./blocks/popup-image/__container/popup-image__container.css);
+@import url(./blocks/popup-image/__picture/popup-image__picture.css);
+
+@import url(./blocks/popup/__input/_state_invalid/popup__input_state_invalid.css);
+@import url(./blocks/error/error.css);
+@import url(./blocks/popup/__save-button/_invalid/popup__save-button_invalid.css);
+@import url(./blocks/elements/__list/elements__list.css);
+@import url(./blocks/card/card__like_numbers.css);
+@import url(./blocks/profile/profile__avatar-button.css);
+@import url(./blocks/popup/__delete/popup__delete_btn.css);
