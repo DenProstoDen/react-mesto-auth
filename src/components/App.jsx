@@ -9,6 +9,9 @@ import CurrentUserContext from '../context/CurentUserContext.js';
 import PopupAvatar from './PopupAvatar.jsx';
 import PopupPlace from './PopupPlace.jsx';
 import PopupProfile from './PopupProfile.jsx';
+import Login from './Login.jsx';
+import Register from './Register.jsx';
+import ProtectedRouteElement from './Route.jsx';
 
 function App() {
 
