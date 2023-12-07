@@ -10,7 +10,7 @@ export default function Header(props) {
         navigate('/signin', { replace: true });
     }
     return(
-        <header className="header">
+    <header className="header">
         <img className="header__logo" src={logo} alt="Логотип Mesto" />
         <Routes>
             <Route path="/signin" element={
@@ -20,12 +20,12 @@ export default function Header(props) {
                 <Link to="/signin" className="header__link">Войти</Link>
             } />
             <Route path="/" element={
-                 <div className="header__section">
-                 <p className="header__email">{props.userData}</p>
-                 <button onClick={signOut} className="header__logout">Выйти</button>
-             </div>
+                <div className="header__section">
+                <p className="header__email">{props.userData}</p>
+                <button onClick={signOut} className="header__logout">Выйти</button>
+            </div>
               } />
-              </Routes >
-          </header >
+        </Routes >
+    </header >
     );
 }
