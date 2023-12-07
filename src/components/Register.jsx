@@ -1,5 +1,5 @@
 import React from 'react';
-import PopupSignForm from './PopupSignForm';
+import SignForm from './PopupSignForm';
 import { Link } from 'react-router-dom';
 
 function Register(props) {

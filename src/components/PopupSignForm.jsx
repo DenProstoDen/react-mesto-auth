@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupSignForm(props) {
+function SignForm(props) {
     return (
         <main className="content">
             <section className="sign">
@@ -35,4 +35,4 @@ function PopupSignForm(props) {
     );
 }
 
-export default PopupSignForm;
+export default SignForm;
