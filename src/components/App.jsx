@@ -17,6 +17,8 @@ import imgSuccess from '../images/good.svg';
 import imgFail from '../images/bad.svg';
 import { useForm } from './useForm.jsx';
 import { useNavigate, Routes, Route, Navigate } from 'react-router-dom';
+import * as sign from '../utils/Sign.js';
+
 
 
 function App() {
@@ -277,16 +279,6 @@ function App() {
           />
           <Route path="*" element={loggedIn ? <Navigate to="/" replace /> : <Navigate to="/signin" replace />} />
         </Routes>
-
-      <Main
-        onEditProfile = {handleProfileClick}
-        onAddPlace ={handlePlaceClick}
-        onEditAvatar = {handleAvatarClick}
-        onCardClick = {handleCardClick}
-        onDelete = {handleDelete}
-        onCardLike={handleCardLike}
-        cards = {cards}
-      />
 
       <Footer />
 

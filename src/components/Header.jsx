@@ -10,28 +10,22 @@ export default function Header(props) {
         navigate('/signin', { replace: true });
     }
     return(
+        <header className="header">
+        <img className="header__logo" src={logo} alt="Логотип Mesto" />
         <Routes>
             <Route path="/signin" element={
-                <header className="header">
-                    <img src={logo} className="header__logo" alt="Место"/>
-                    <Link to="/signup" className="header__link">Регистрация</Link>
-                </header>
+                <Link to="/signup" className="header__link">Регистрация</Link>
             } />
             <Route path="/signup" element={
-                <header className="header">
-                    <img src={logo} className="header__logo" alt="Место"/>
-                    <Link to="/signin" className="header__link">Войти</Link>
-                </header>
+                <Link to="/signin" className="header__link">Войти</Link>
             } />
             <Route path="/" element={
-                <header className="header">
-                    <img src={logo} className="header__logo" alt="Место"/>
-                    <div className="header__section">
-                        <p className="header__email">{props.userData}</p>
-                        <button onClick={signOut} className="header__logout">Выйти</button>
-                    </div>
-                </header>
-            } />
-        </Routes>
-    )
+                 <div className="header__section">
+                 <p className="header__email">{props.userData}</p>
+                 <button onClick={signOut} className="header__logout">Выйти</button>
+             </div>
+              } />
+              </Routes >
+          </header >
+    );
 }
