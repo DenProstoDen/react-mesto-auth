@@ -15,7 +15,7 @@ import ProtectedRouteElement from './Route.jsx';
 import InfoTooltip from './Info.jsx';
 import imgSuccess from '../images/good.svg';
 import imgFail from '../images/bad.svg';
-import { useForm } from './useForm.jsx';
+import { useForm } from '../hooks/useForm.jsx';
 import { useNavigate, Routes, Route, Navigate } from 'react-router-dom';
 import * as sign from '../utils/Sign.js';
 

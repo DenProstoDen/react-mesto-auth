@@ -56,5 +56,4 @@ export const getContent = (token) => {
   .then((response) => {
     return getResponseData(response)
   })
-  .then(data => data)
 }
