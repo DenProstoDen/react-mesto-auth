@@ -19,8 +19,6 @@ import { useForm } from '../hooks/useForm.jsx';
 import { useNavigate, Routes, Route, Navigate } from 'react-router-dom';
 import * as sign from '../utils/Sign.js';
 
-
-
 function App() {
 
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false)
@@ -37,8 +35,6 @@ function App() {
   const { values, handleChange, setValues } = useForm({password: '', email: ''});
   const [loggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState('');
-
-
 
   const setStateCloseAllPopups = useCallback(() => {
     setIsEditProfilePopupOpen(false)
@@ -90,7 +86,6 @@ function App() {
     }
   }, [loggedIn])
 
-
   const closePopupByEsc = useCallback ((evt) => {
     if (evt.key === 'Escape') {
       setStateCloseAllPopups()
@@ -106,7 +101,6 @@ function App() {
   function setEventListenerForDocument() {
     document.addEventListener('keydown', closePopupByEsc)
   }
-
 
   function handleProfileClick() {
     setIsEditProfilePopupOpen(true)
@@ -237,12 +231,9 @@ function App() {
       })
   }
 
-
   return (
   <div className="page">
   <CurrentUserContext.Provider value={currentUser}>
-
-
 
       <Header userData={userData} />
       
