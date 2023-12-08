@@ -34,7 +34,7 @@ function App() {
   const [isFailPopupOpen, setIsFailPopupOpen] = useState(false);
   const { values, handleChange, setValues } = useForm({password: '', email: ''});
   const [loggedIn, setLoggedIn] = useState(false);
-  const [userMail, setUserMail] = useState('');
+  const [userData, setUserData] = useState('');
 
   const setStateCloseAllPopups = useCallback(() => {
     setIsEditProfilePopupOpen(false)
@@ -59,7 +59,7 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            setUserMail(res.data.email);
+            setUserData(res.data.email);
             navigate("/", { replace: true });
           }
         })
@@ -81,7 +81,7 @@ function App() {
           setCards(cards);
         })
         .catch((error) => {
-          console.log((`Ошибка начальных данных${error}`));
+          console.log(error);
         })
     }
   }, [loggedIn])
@@ -193,6 +193,9 @@ function App() {
 
   function handleSubmitLogin(evt) {
     evt.preventDefault();
+    if (!values.password || !values.email) {
+      return;
+    }
     sign.authorize(values.password, values.email)
       .then((data) => {
         if (data.token) {
@@ -219,11 +222,12 @@ function App() {
       })
   }
 
+
   return (
   <div className="page">
   <CurrentUserContext.Provider value={currentUser}>
 
-      <Header userMail={userMail} />
+      <Header userData={userData} />
       
         <Routes>
           <Route path="/signup" element={
@@ -279,40 +283,38 @@ function App() {
        onClose = {closeAllPopups}
       />
 
-      <PopupWithForm 
-        name='delete' 
-        title='Вы уверены?'
-        titleButton='Да'
-        isOpen = {isDeletePopupOpen}
-        onClose={closeAllPopups}
-        onSubmit={handleCardDelete}
-      />
+        <PopupWithForm 
+          name='delete' 
+          title='Вы уверены?'
+          titleButton='Да'
+          isOpen = {isDeletePopupOpen}
+          onClose={closeAllPopups}
+          onSubmit={handleCardDelete}
+        />
 
-      <ImagePopup 
-      card={selectedCard}
-      isOpen={isImagePopup}
-      onClose={closeAllPopups}
-      />
-
-      <InfoTooltip
-        name="infoTooltip"
-        isOpen={isSuccessPopupOpen}
-        src={imgSuccess}
-        alt="Успех!"
-        title="Вы успешно зарегистрировались!"
+        <ImagePopup 
+        card={selectedCard}
+        isOpen={isImagePopup}
         onClose={closeAllPopups}
-        reg={true}
-      />
-
-      <InfoTooltip
-        name="infoTooltip"
-        isOpen={isFailPopupOpen}
-        src={imgFail}
-        alt="Ошибка!"
-        title="Что-то пошло не так! Попробуйте ещё раз."
-        onClose={closeAllPopups}
-        reg={false}
-      />
+        />
+        <InfoTooltip
+          name="infoTooltip"
+          isOpen={isSuccessPopupOpen}
+          src={imgSuccess}
+          alt="Успех!"
+          title="Вы успешно зарегистрировались!"
+          onClose={closeAllPopups}
+          reg={true}
+        />
+                <InfoTooltip
+          name="infoTooltip"
+          isOpen={isFailPopupOpen}
+          src={imgFail}
+          alt="Ошибка!"
+          title="Что-то пошло не так! Попробуйте ещё раз."
+          onClose={closeAllPopups}
+          reg={false}
+        />
     </CurrentUserContext.Provider>
   </div>
   )
