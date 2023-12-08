@@ -21,10 +21,10 @@ export default function Header(props) {
             } />
             <Route path="/" element={
                 <div className="header__section">
-                <p className="header__email">{props.userData}</p>
+                <p className="header__email">{props.userMail}</p>
                 <button onClick={signOut} className="header__logout">Выйти</button>
             </div>
-              } />
+            } />
         </Routes >
     </header >
     );
