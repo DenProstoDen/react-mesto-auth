@@ -34,7 +34,7 @@ function App() {
   const [isFailPopupOpen, setIsFailPopupOpen] = useState(false);
   const { values, handleChange, setValues } = useForm({password: '', email: ''});
   const [loggedIn, setLoggedIn] = useState(false);
-  const [userData, setUserData] = useState('');
+  const [userMail, setUserMail] = useState('');
 
   const setStateCloseAllPopups = useCallback(() => {
     setIsEditProfilePopupOpen(false)
@@ -59,7 +59,7 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            setUserData(res.data.email);
+            setUserMail(res.data.email);
             navigate("/", { replace: true });
           }
         })
@@ -222,12 +222,11 @@ function App() {
       })
   }
 
-
   return (
   <div className="page">
   <CurrentUserContext.Provider value={currentUser}>
 
-      <Header userData={userData} />
+      <Header userMail={userMail} />
       
         <Routes>
           <Route path="/signup" element={
