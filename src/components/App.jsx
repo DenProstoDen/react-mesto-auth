@@ -15,7 +15,6 @@ import ProtectedRouteElement from './Route.jsx';
 import InfoTooltip from './Info.jsx';
 import imgSuccess from '../images/good.svg';
 import imgFail from '../images/bad.svg';
-import { useForm } from '../hooks/useForm.jsx';
 import { useNavigate, Routes, Route, Navigate } from 'react-router-dom';
 import * as sign from '../utils/Sign.js';
 
@@ -32,7 +31,6 @@ function App() {
   const [deleteCard, setDeleteCard] = useState('');
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = useState(false);
   const [isFailPopupOpen, setIsFailPopupOpen] = useState(false);
-  const { values, handleChange, setValues } = useForm({password: '', email: ''});
   const [loggedIn, setLoggedIn] = useState(false);
   const [userMail, setUserMail] = useState('');
 
@@ -191,15 +189,10 @@ function App() {
       .catch((error) => console.error(`Ошибка карточки ${error}`))
   }
 
-  function handleSubmitLogin(evt) {
-    evt.preventDefault();
-    if (!values.password || !values.email) {
-      return;
-    }
-    sign.authorize(values.password, values.email)
+  function handleSubmitLogin(password, email) {
+    sign.login(password, email)
       .then((data) => {
         if (data.token) {
-          setValues({ password: '', email: '' });
           handleLogin();
           navigate('/', { replace: true });
         }
@@ -210,9 +203,8 @@ function App() {
       })
   }
 
-  function handleSubmitRegister(evt) {
-    evt.preventDefault();
-    sign.register(values.password, values.email)
+  function handleSubmitRegister(password, email) {
+    sign.register(password, email)
       .then(() => {
         handleSuccessPopupOpen();
       })
@@ -231,19 +223,12 @@ function App() {
         <Routes>
           <Route path="/signup" element={
             <Register
-              onSubmit={handleSubmitRegister}
-              onChange={handleChange}
-              email={values.email}
-              password={values.password}
+              onSignUp={handleSubmitRegister}
             />}
           />
           <Route path="/signin" element={
             <Login
-              handleLogin={handleLogin}
-              onSubmit={handleSubmitLogin}
-              onChange={handleChange}
-              email={values.email}
-              password={values.password}
+              onSignIn={handleSubmitLogin}
             />}
           />
           <Route path="/"
