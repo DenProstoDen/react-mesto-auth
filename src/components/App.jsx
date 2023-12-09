@@ -32,7 +32,7 @@ function App() {
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = useState(false);
   const [isFailPopupOpen, setIsFailPopupOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [userMail, setUserMail] = useState('');
+  const [userEmail, setUserMail] = useState("");
 
   const setStateCloseAllPopups = useCallback(() => {
     setIsEditProfilePopupOpen(false)
@@ -48,7 +48,7 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
-  }, [])
+  }, [navigate])
 
   function tokenCheck() {
     const jwt = localStorage.getItem('jwt');
@@ -192,10 +192,9 @@ function App() {
   function handleSubmitLogin(password, email) {
     sign.login(password, email)
       .then((data) => {
-        if (data.token) {
-          handleLogin();
-          navigate('/', { replace: true });
-        }
+        localStorage.setItem("jwt", data.token);
+        handleLogin();
+        navigate('/', { replace: true });
       })
       .catch((err) => {
         handleFailPopupOpen();
@@ -207,6 +206,7 @@ function App() {
     sign.register(password, email)
       .then(() => {
         handleSuccessPopupOpen();
+        navigate("/signin", { replace: true });
       })
       .catch((err) => {
         handleFailPopupOpen();
@@ -218,7 +218,7 @@ function App() {
   <div className="page">
   <CurrentUserContext.Provider value={currentUser}>
 
-      <Header userMail={userMail} />
+      <Header userMail={userEmail} />
       
         <Routes>
           <Route path="/signup" element={

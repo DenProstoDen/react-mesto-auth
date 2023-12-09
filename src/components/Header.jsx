@@ -3,7 +3,7 @@ import logo from '../images/logo.svg';
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
 
 
-export default function Header(props) {
+export default function Header({userMail}) {
     const navigate = useNavigate();
     function signOut() {
         localStorage.removeItem('jwt');
@@ -21,9 +21,9 @@ export default function Header(props) {
             } />
             <Route path="/" element={
                 <div className="header__section">
-                <p className="header__email">{props.userMail}</p>
-                <button onClick={signOut} className="header__logout">Выйти</button>
-            </div>
+                    <p className="header__email">{userMail}</p>
+                    <button onClick={signOut} className="header__logout">Выйти</button>
+                </div>
             } />
         </Routes >
     </header >

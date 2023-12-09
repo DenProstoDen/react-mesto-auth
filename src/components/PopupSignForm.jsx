@@ -2,7 +2,6 @@ import React from 'react';
 
 function SignForm(props) {
     return (
-        <main className="content">
             <section className="sign">
                 <form name={`${props.name}`} className="sign__form" onSubmit={props.onSubmit}>
                     <h2 className="sign__title">{`${props.title}`}</h2>
@@ -31,7 +30,6 @@ function SignForm(props) {
                     <p className="sign__text">{props.text}{props.link}</p>
                 </form>
             </section>
-        </main>
     );
 }
 
